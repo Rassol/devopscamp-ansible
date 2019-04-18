@@ -12,3 +12,5 @@ iface: '{{ ansible_default_ipv4.interface }}'
 
 # this is the repository that holds our sample webapp
 repository: https://github.com/ikukulevskyi/devopscamp-pythonsite.git
+
+repo_name: devopscamp-pythonsite
