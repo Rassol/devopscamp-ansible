@@ -12,7 +12,10 @@
 
 # Configure and deploy database servers.
 - hosts: dbservers
-
+  become: 
+    true
+  become_method: 
+    sudo
   roles:
   - db
 
@@ -23,7 +26,10 @@
 # the 'base-apache' role which simply sets up Apache, and 'web' which includes
 # our example web application.
 - hosts: webservers
-
+  become: 
+    true
+  become_method: 
+    sudo
   roles:
   - base-apache
   - web
@@ -33,7 +39,10 @@
 
 # Configure and deploy the load balancer(s).
 - hosts: lbservers
-
+  become: 
+    true
+  become_method: 
+    sudo
   roles:
   - haproxy
 
@@ -42,7 +51,10 @@
 
 # Configure and deploy the Nagios monitoring node(s).
 - hosts: monitoring
-
+  become: 
+    true
+  become_method: 
+    sudo
   roles:
   - base-apache
   - nagios
