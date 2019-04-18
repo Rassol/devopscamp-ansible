@@ -3,4 +3,4 @@
   git: 
    repo: "{{ repository }}"
    version: "{{ webapp_version }}"
-   dest: "/var/www/html"
+   dest: "/var/www/html/."
