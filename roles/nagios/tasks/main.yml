@@ -6,7 +6,8 @@
    pkg: "{{ item }}"
    state: present
   with_items:
-   - nagios
+   - nagios3
+   - nagios-nrpe-plugin
    - nagios-plugins-standart
    - nagios-plugins-extra
    - nagios-devel
