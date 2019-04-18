@@ -18,4 +18,4 @@
 - name: Insert a line at the end of a file.
   lineinfile:
     path: "/etc/hosts"
-    line: "{{ redis.ansible_ssh_host }} redis" 
+    line: "{{ hostvars[redis]['ansible_default_ipv4']['address'] }} redis" 
