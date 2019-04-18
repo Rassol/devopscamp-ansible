@@ -3,7 +3,10 @@
 
 # Apply common configuration to all hosts
 - hosts: all
-
+  become: 
+    true
+  become_method: 
+    sudo
   roles:
   - common
 
