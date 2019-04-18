@@ -9,7 +9,6 @@
    - nagios3
    - nagios-nrpe-plugin
    - nagios-plugins-standard
-   - nagios-devel
   notify: restart httpd
 
 - name: create nagios config dir
