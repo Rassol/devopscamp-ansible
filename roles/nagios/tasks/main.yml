@@ -7,36 +7,37 @@
    state: present
   with_items:
    - nagios3
+   - nagios-nrpe-server
    - nagios-nrpe-plugin
    - nagios-plugins-standard
   notify: restart httpd
 
 - name: create nagios config dir
   file: 
-   path: "/etc/nagios/ansible-managed"
+   path: "/etc/nagios3/ansible-managed"
    state: directory
 
 - name: configure nagios
   copy: 
    src: "nagios.cfg"
-   dest: "/etc/nagios/nagios.cfg"
+   dest: "/etc/nagios3/nagios.cfg"
   notify: restart nagios
 
 - name: configure localhost monitoring
   copy: 
    src: "localhost.cfg"
-   dest: "/etc/nagios/objects/localhost.cfg"
+   dest: "/etc/nagios3/objects/localhost.cfg"
   notify: restart nagios
 
 - name: configure nagios services
   copy: 
    src: "ansible-managed-services.cfg"
-   dest: "/etc/nagios/"
+   dest: "/etc/nagios3/"
 
 - name: create the nagios object files
   template: 
    src: "{{ item }}.j2"
-   dest: "/etc/nagios/ansible-managed/{{ item }}"
+   dest: "/etc/nagios3/ansible-managed/{{ item }}"
   with_items:
     - webservers.cfg
     - dbservers.cfg
