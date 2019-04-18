@@ -1,0 +1,6 @@
+---
+# This role installs redis
+- name: Install redis
+  apt:
+    name: redis
+    state: present
