@@ -17,5 +17,10 @@
  
 - name: Insert a line at the end of a file.
   lineinfile:
-    path: "/etc/hosts"
-    line: "{{ hostvars['redis']['ansible_default_ipv4']['address'] }} redis"
+   path: "/etc/hosts"
+   line: "{{ hostvars['redis']['ansible_default_ipv4']['address'] }} redis"
+
+- name: Enable CGI
+  apache2_module:
+   state: present
+   name: cgi
