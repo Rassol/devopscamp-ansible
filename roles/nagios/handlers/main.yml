@@ -7,5 +7,5 @@
 
 - name: restart nagios
   service: 
-   name: nagios
+   name: nagios3
    state: restarted

@@ -46,6 +46,6 @@
 
 - name: start nagios
   service: 
-   name: nagios
+   name: nagios3
    state: started
    enabled: yes
