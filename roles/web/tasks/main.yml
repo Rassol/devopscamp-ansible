@@ -13,7 +13,7 @@
 
 - name: Install specified python requirements.
   pip:
-   requirements: "/var/www/html/code/{{ repo_name }}/requirements.txt"
+   requirements: "/var/www/html/code/requirements.txt"
  
 - name: Insert a line at the end of a file.
   lineinfile:
