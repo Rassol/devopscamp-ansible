@@ -8,7 +8,7 @@
   with_items:
    - nagios3
    - nagios-nrpe-plugin
-   - nagios-plugins-standart
+   - nagios-plugins-standard
    - nagios-plugins-extra
    - nagios-devel
   notify: restart httpd
