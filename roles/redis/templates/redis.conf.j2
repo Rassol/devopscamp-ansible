@@ -68,6 +68,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 bind 127.0.0.1 ::1 {% for host in groups.webservers %}
 {{ hostvars[host].ansible_default_ipv4.address }}
+{%- if loop.first %} {% endif %}
 {% endfor %}
 
 # Protected mode is a layer of security protection, in order to avoid that
