@@ -17,11 +17,11 @@
    path: "/etc/nagios3/ansible-managed"
    state: directory
 
-#- name: configure nagios
-#  copy: 
-#   src: "nagios.cfg"
-#   dest: "/etc/nagios3/nagios.cfg"
-#  notify: restart nagios
+- name: configure nagios
+  copy: 
+   src: "nagios.cfg"
+   dest: "/etc/nagios3/nagios.cfg"
+  notify: restart nagios
 
 - name: configure localhost monitoring
   copy: 
