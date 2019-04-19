@@ -8,4 +8,10 @@
 - name: Insert a line at the end of a file.
   lineinfile:
     path: "/etc/hosts"
-    line: "127.0.0.1 redis"     
+    line: "127.0.0.1 redis"
+
+- name: create the conf file
+  template: 
+   src: "redis.conf.j2"
+   dest: "/etc/redis/redis.conf"
+  notify: restart redis
