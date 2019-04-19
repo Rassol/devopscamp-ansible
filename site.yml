@@ -50,17 +50,17 @@
   - lb
 
 # Configure and deploy the Nagios monitoring node(s).
-- hosts: monitoring
-  become: 
-    true
-  become_method: 
-    sudo
-  roles:
-  - base-apache
-  - nagios
-
-  tags:
-  - monitoring
+#- hosts: monitoring
+#  become: 
+#    true
+#  become_method: 
+#    sudo
+#  roles:
+#  - base-apache
+#  - nagios
+#
+#  tags:
+#  - monitoring
 
 # Configure and deploy the Redis node(s).
 - hosts: redisdb
