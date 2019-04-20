@@ -29,7 +29,7 @@
   with_items:
    - nagios-nrpe-server
    - nagios-nrpe-plugin
-   - nagios-plugins-standart
+   - nagios-plugins-standard
   notify: restart httpd
 
 - name: create nagios config dir
