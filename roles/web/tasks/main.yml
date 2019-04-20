@@ -4,7 +4,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-   - python-pip
+   - python-pip3
 
 - name: Copy the code from repository
   git: 
@@ -15,6 +15,7 @@
 - name: Install specified python requirements.
   pip:
    requirements: "/var/www/html/code/requirements.txt"
+   executable: pip-3
  
 - name: Insert a line at the end of a file.
   lineinfile:
