@@ -5,39 +5,42 @@
   apt: 
    pkg: "{{ item }}"
    state: present
+   dpkg_options: 'force-confold,force-confdef'
   with_items:
-   - nagios3
+   - nagios4-common
+   - nagios4-core
+   - nagios4-cgi
    - nagios-nrpe-server
    - nagios-nrpe-plugin
-   - nagios-plugins-standard
+   - nagios-plugins-standart
   notify: restart httpd
 
 - name: create nagios config dir
   file: 
-   path: "/etc/nagios3/ansible-managed"
+   path: "/etc/nagios4/ansible-managed"
    state: directory
 
 - name: configure nagios
   copy: 
    src: "nagios.cfg"
-   dest: "/etc/nagios3/nagios.cfg"
+   dest: "/etc/nagios4/nagios.cfg"
   notify: restart nagios
 
 - name: configure localhost monitoring
   copy: 
    src: "localhost.cfg"
-   dest: "/etc/nagios3/localhost.cfg"
+   dest: "/etc/nagios4/objects/localhost.cfg"
   notify: restart nagios
 
 - name: configure nagios services
   copy: 
    src: "ansible-managed-services.cfg"
-   dest: "/etc/nagios3/"
+   dest: "/etc/nagios4/"
 
 - name: create the nagios object files
   template: 
    src: "{{ item }}.j2"
-   dest: "/etc/nagios3/ansible-managed/{{ item }}"
+   dest: "/etc/nagios4/ansible-managed/{{ item }}"
   with_items:
     - webservers.cfg
     - dbservers.cfg
@@ -46,6 +49,6 @@
 
 - name: start nagios
   service: 
-   name: nagios3
+   name: nagios4
    state: started
    enabled: yes
