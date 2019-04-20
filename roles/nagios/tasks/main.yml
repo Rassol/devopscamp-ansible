@@ -41,16 +41,16 @@
    - nagios-plugins-standard
   notify: restart httpd
 
-#- name: create nagios config dir
-#  file: 
-#   path: "/etc/nagios4/ansible-managed"
-#   state: directory
+- name: create nagios config dir
+  file: 
+   path: "/etc/nagios4/ansible-managed"
+   state: directory
 
-#- name: configure nagios
-#  copy: 
-#   src: "nagios.cfg"
-#   dest: "/etc/nagios4/nagios.cfg"
-#  notify: restart nagios
+- name: configure nagios
+  copy: 
+   src: "nagios.cfg"
+   dest: "/etc/nagios4/nagios.cfg"
+  notify: restart nagios
 
 #- name: configure localhost monitoring
 #  copy: 
