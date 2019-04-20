@@ -10,9 +10,5 @@
    - php
    - php-mysql
    - git
-
-- name: http service state
-  service:
-    name: apache2
-    state: started
-    enabled: yes
+  notify:
+   restart apache2
