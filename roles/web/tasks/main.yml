@@ -15,7 +15,7 @@
 - name: Install specified python requirements.
   pip:
    requirements: "/var/www/html/code/requirements.txt"
-   executable: pip-3
+   executable: pip3
  
 - name: Insert a line at the end of a file.
   lineinfile:
