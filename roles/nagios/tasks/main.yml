@@ -1,6 +1,15 @@
 ---
 # This will install nagios
 
+- name: Enable plugins for apache
+  apache2_module:
+   state: present
+   name: "{{ item }}"
+  with_items:
+   - auth_digest
+   - authz_groupfile
+  notify: restart httpd
+
 - name: Install Nagios4-common repository
   apt:
     deb: http://cz.archive.ubuntu.com/ubuntu/pool/universe/n/nagios4/nagios4-common_4.3.4-3_all.deb
@@ -63,14 +72,6 @@
     - dbservers.cfg
     - lbservers.cfg
   notify: restart nagios
-
-- name: Enable plugins for apache
-  apache2_module:
-   state: present
-   name: "{{ item }}"
-  with_items:
-   - auth_digest
-   - authz_groupfile
 
 - name: start nagios
   service: 
