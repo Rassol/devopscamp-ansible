@@ -18,10 +18,12 @@
    requirements: "/var/www/html/code/requirements.txt"
    executable: pip3
  
-- name: Insert a line at the end of a file.
-  lineinfile:
-   path: "/etc/hosts"
-   line: "{{ hostvars['redis']['ansible_default_ipv4']['address'] }} redis"
+
+- name: Replace python file
+  replace:
+    dest: /var/www/html/code/app.py
+    regexp: 'host="redis"'
+    replace: host="{{ hostvars['redis']['ansible_default_ipv4']['address'] }}"
 
 - name: Copy virtualhost config
   template: 
