@@ -10,6 +10,7 @@
   git: 
    repo: "{{ repository }}"
    dest: "/var/www/html/code"
+   force: yes
 
 - name: Install specified python requirements.
   pip:

@@ -1,15 +1,32 @@
 ---
 # This will install nagios
 
+- name: Install Nagios4-common repository
+  apt:
+    deb: http://cz.archive.ubuntu.com/ubuntu/pool/universe/n/nagios4/nagios4-common_4.3.4-3_all.deb
+    dpkg_options: 'force-confold,force-confdef'
+
+- name: Install Nagios4-core repository
+  apt:
+    deb: http://cz.archive.ubuntu.com/ubuntu/pool/universe/n/nagios4/nagios4-core_4.3.4-3_amd64.deb
+    dpkg_options: 'force-confold,force-confdef'
+
+- name: Install Nagios-cgi repository
+  apt:
+    deb: http://cz.archive.ubuntu.com/ubuntu/pool/universe/n/nagios4/nagios4-cgi_4.3.4-3_amd64.deb
+    dpkg_options: 'force-confold,force-confdef'
+
+- name: Install Nagios repository
+  apt:
+    deb: http://cz.archive.ubuntu.com/ubuntu/pool/universe/n/nagios4/nagios4_4.3.4-3_amd64.deb
+    dpkg_options: 'force-confold,force-confdef'
+
 - name: install nagios
   apt: 
    pkg: "{{ item }}"
    state: present
    dpkg_options: 'force-confold,force-confdef'
   with_items:
-   - nagios4-common
-   - nagios4-core
-   - nagios4-cgi
    - nagios-nrpe-server
    - nagios-nrpe-plugin
    - nagios-plugins-standart
