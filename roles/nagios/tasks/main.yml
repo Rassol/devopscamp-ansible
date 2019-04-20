@@ -64,6 +64,14 @@
     - lbservers.cfg
   notify: restart nagios
 
+- name: Enable plugins for apache
+  apache2_module:
+   state: present
+   name: "{{ item }}"
+  with_items:
+   - auth_digest
+   - authz_groupfile
+
 - name: start nagios
   service: 
    name: nagios4

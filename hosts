@@ -1,9 +1,9 @@
 [webservers]
 web1 ansible_ssh_host=172.31.95.53
-web2 ansible_ssh_host=172.31.84.78
+web2 ansible_ssh_host=172.31.87.92
 
 [dbservers]
-db1 ansible_ssh_host=172.31.84.78
+db1 ansible_ssh_host=172.31.87.92
 
 [lbservers]
 lb1 ansible_ssh_host=127.0.0.1
