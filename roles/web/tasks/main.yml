@@ -17,7 +17,6 @@
   pip:
    requirements: "/var/www/html/code/requirements.txt"
    executable: pip3
- 
 
 - name: Replace python file
   replace:

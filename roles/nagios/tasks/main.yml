@@ -52,16 +52,11 @@
    dest: "/etc/nagios4/nagios.cfg"
   notify: restart nagios
 
-#- name: configure localhost monitoring
-#  copy: 
-#   src: "localhost.cfg"
-#   dest: "/etc/nagios4/objects/localhost.cfg"
-#  notify: restart nagios
-
 - name: configure nagios services
   copy: 
    src: "ansible-managed-services.cfg"
    dest: "/etc/nagios4/"
+  notify: restart nagios
 
 - name: create the nagios object files
   template: 
