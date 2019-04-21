@@ -3,11 +3,8 @@
 
 - name: Install Mysql package
   apt: 
-   name: "{{ item }}"
+   name: ['mysql-server', 'python-mysqldb']
    state: present
-  with_items:
-   - mysql-server
-   - python-mysqldb
 
 - name: Create Mysql configuration file
   template: 

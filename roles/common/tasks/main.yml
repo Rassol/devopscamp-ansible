@@ -3,11 +3,8 @@
 
 - name: install some useful nagios plugins
   apt: 
-   name: "{{ item }}"
+   name: ['nagios-nrpe-plugin', 'nagios-plugins-standard']
    state: present
-  with_items:
-   - nagios-nrpe-plugin
-   - nagios-plugins-standard
 
 - name: Install ntp
   apt: 

@@ -32,13 +32,9 @@
 
 - name: install nagios
   apt: 
-   pkg: "{{ item }}"
+   pkg: ['nagios-nrpe-server', 'nagios-nrpe-plugin', 'nagios-plugins-standard']
    state: present
    dpkg_options: 'force-confold,force-confdef'
-  with_items:
-   - nagios-nrpe-server
-   - nagios-nrpe-plugin
-   - nagios-plugins-standard
   notify: restart httpd
 
 - name: create nagios config dir
